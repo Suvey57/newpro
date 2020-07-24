@@ -1,0 +1,11 @@
+{% extends "myapp/base.html" %}
+
+{% block content%}	
+	
+	{% for post in posts %}
+		<img class = " rounded-circle" src="{{ post.writer.profile.image.url }}">
+		<h3><a href="{% url 'post-detail' post.id %}">{{ post.book_name }}</a></h3>
+		<p>By {{ post.writer }} on {{ post.date|date:"F d, Y" }}</p>
+		<p>{{ post.content }}</p>
+	{% endfor %}
+{% endblock %}
